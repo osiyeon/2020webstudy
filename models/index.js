@@ -32,10 +32,11 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+// 한눈에 보임. 고칠 때 여기서만 볼 수 있음. 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.user = require('./user')(sequelize,Sequelize);
+db.user = require('./user')(sequelize,Sequelize); //exports 시킨대로 받아와야 실행시킬 수 있음. 
 db.post = require('./post')(sequelize,Sequelize);
 db.message = require('./message')(sequelize,Sequelize);
 db.reply = require('./reply')(sequelize,Sequelize);
@@ -57,9 +58,9 @@ db.reply.belongsTo(db.user, {foreignKey: 'user_id', targetKey: 'id'});
 db.chatting.hasMany(db.message, {foreignKey: 'chatting_id', sourceKey: 'id'});
 db.message.belongsTo(db.chatting, {foreignKey: 'chatting_id', targetKey: 'id'});
 
+//chatting <-> user N:M 연결
 const User_Chattings = sequelize.define('User_Chattings',{},{timestamps:false});
 
-//chatting <-> user N:M 연결
 db.chatting.belongsToMany(db.user, { through: User_Chattings });
 db.user.belongsToMany(db.chatting,{ through: User_Chattings })
 

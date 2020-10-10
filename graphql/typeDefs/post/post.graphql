@@ -1,0 +1,20 @@
+type Query {
+    getAllPost: [Post]
+    getPost(title: String): [Post]
+}
+
+type Mutation {
+    createPost(boardType:String, title:String, content_imag:String, content_text:String, like:Int): Post  
+}
+
+type Post {
+    id:Int
+    boardType:String
+    title:String
+    content_imag:String
+    content_text:String
+    like:Int
+    author_info:User
+}
+
+

@@ -1,0 +1,32 @@
+type Query {
+    getUser(email: String): User
+}
+
+type Mutation {
+    createUser(firstName:String, lastName:String, phoneNumber:String, gender:Gender, email:String, password:String, nickname:String, mbtiType:String): User  
+    emailSignin(email:String, password:String):EmailSigninResponse
+}
+
+type User {
+    id: Int
+    firstName: String
+    lastName: String
+    phoneNumber: String
+    gender: Gender
+    email: String
+    password: String
+    nickname: String
+    mbtiType: String
+}
+
+enum Gender{
+    Female
+    Male
+}
+
+type EmailSigninResponse {
+    ok:Boolean
+    token: String
+    error: String
+    user:User
+}

@@ -1,0 +1,15 @@
+type Query {
+    getMyReply: [Reply]
+    getAllReply: [Reply]
+}
+
+type Mutation {
+    createReply(text:String): Reply
+}
+
+type Reply {
+    id:Int
+    text: String
+}
+
+

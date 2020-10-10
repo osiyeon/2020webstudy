@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  return sequelize.define('user', {
+  const user = sequelize.define('user', {
     firstName: {
       type: DataTypes.STRING,
     },
@@ -33,4 +33,5 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM("Yes", "No")
     }
   })
+  return user;
 };

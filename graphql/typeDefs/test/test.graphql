@@ -1,0 +1,18 @@
+type Query {
+    hello: String
+}
+
+type Mutation {
+    saySomething(something: String): String  
+}
+
+type User {
+    name: String
+    age: Int
+}
+
+type GetUserResponse {
+    ok: Boolean
+    user:User
+    error: String
+}
