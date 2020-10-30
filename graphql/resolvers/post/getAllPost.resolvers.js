@@ -3,7 +3,7 @@ const db = require('../../../models');
 
 const resolvers = {
     Query: {
-        getAllPost: async (_, {args}) => {
+        getAllPost: async () => {
             try {
                 return db.post.findAll()
             }

@@ -14,7 +14,6 @@ type Post {
     content_imag:String
     content_text:String
     like:Int
-    author_info:User
 }
 
 

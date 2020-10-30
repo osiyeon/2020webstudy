@@ -1,6 +1,6 @@
 const { argsToFieldConfigArgumentMap } = require('graphql-tools');
 const db = require('../../../models');
-const jwt = require( "jsonwebtoken");
+const createJWT = require( "../../../middleware/createJWT");
 
 const resolvers = {
     Mutation: {
@@ -17,10 +17,9 @@ const resolvers = {
                     user: null
                 }
             }
-            const validPassword = await user.compare(
-                password,
-                user.password
-            )
+
+            const validPassword = user.password === password ? true : false;
+            
             if (!validPassword){
                 return {
                     ok:false,
@@ -32,7 +31,7 @@ const resolvers = {
             const token = createJWT(user.id)
             return {
                 ok: true, 
-                token:null,
+                token: token,
                 error: null,
                 user
             }

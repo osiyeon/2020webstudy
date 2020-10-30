@@ -3,7 +3,7 @@ const express = require("express"); //express 불러옴
 const { ApolloServer, gql } = require('apollo-server-express');
 
 const models = require("./models/index.js");
-const controllers = require('./controllers');
+// const controllers = require('./controllers');
 
 const schema = require('./graphql/schemas');
 console.log(schema);
@@ -14,8 +14,8 @@ const port = 3000;
 app.get("/", (req, res) => {
     res.send('Welcome');
 })
-app.post('/users', controllers.createUser);
-app.get('/users', controllers.getAllUser);
+// app.post('/users', controllers.createUser);
+// app.get('/users', controllers.getAllUser);
 
 
 
