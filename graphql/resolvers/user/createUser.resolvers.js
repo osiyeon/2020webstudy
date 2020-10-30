@@ -17,4 +17,3 @@ const resolvers = {
 
 module.exports = resolvers;
 
-//firstName, lastName, phoneNumber, gender, email, password, nickname, mbtiType
