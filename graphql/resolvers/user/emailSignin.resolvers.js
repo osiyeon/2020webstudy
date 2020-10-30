@@ -9,6 +9,7 @@ const resolvers = {
             const user = await db.user.findOne({
                 where:{email}
             });
+            // console.log(user);
             if (!user) {
                 return {
                     ok:false,
@@ -28,15 +29,16 @@ const resolvers = {
                     user:null
                 }   
             }
-            const token = createJWT(user.id)
+            console.log(user.id)
+            const token = createJWT(user.id);
+            console.log("??");
+            console.log(token);
             return {
                 ok: true, 
-                token: token,
+                token,
                 error: null,
                 user
             }
-
-            return newUser;
 
         }
     },
@@ -44,4 +46,3 @@ const resolvers = {
 
 module.exports = resolvers;
 
-//firstName, lastName, phoneNumber, gender, email, password, nickname, mbtiType

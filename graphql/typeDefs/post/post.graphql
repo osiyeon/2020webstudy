@@ -20,6 +20,8 @@ type Post {
     content_imag:String
     content_text:String
     like:Int
+    createdAt: String
+    updatedAt: String
 }
 
 

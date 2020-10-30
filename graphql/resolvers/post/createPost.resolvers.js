@@ -1,3 +1,4 @@
+const { connect } = require('../../..');
 const db = require('../../../models');
 
 const resolvers = {
@@ -10,7 +11,12 @@ const resolvers = {
                 title,
                 content_image,
                 content_text,
-                like
+                like,
+                user: {
+                    connect: {
+                        id:db.user.id
+                    }
+                }
             });
             return newPost;
 
