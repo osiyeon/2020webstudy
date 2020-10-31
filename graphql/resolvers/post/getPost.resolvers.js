@@ -1,4 +1,3 @@
-const { argsToFieldConfigArgumentMap } = require('graphql-tools');
 const db = require('../../../models');
 
 const resolvers = {

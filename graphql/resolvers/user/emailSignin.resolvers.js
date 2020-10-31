@@ -9,7 +9,6 @@ const resolvers = {
             const user = await db.user.findOne({
                 where:{email}
             });
-            // console.log(user);
             if (!user) {
                 return {
                     ok:false,
@@ -29,10 +28,8 @@ const resolvers = {
                     user:null
                 }   
             }
-            console.log(user.id)
+
             const token = createJWT(user.id);
-            console.log("??");
-            console.log(token);
             return {
                 ok: true, 
                 token,

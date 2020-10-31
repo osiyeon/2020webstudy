@@ -4,8 +4,7 @@ const db = require('../../../models');
 const resolvers = {
     Mutation: {
         createReply: async (_, {text}) => {
-            console.log("reply")
-
+            // console.log("reply")
             const newReply = await db.reply.create({
                text
             });
