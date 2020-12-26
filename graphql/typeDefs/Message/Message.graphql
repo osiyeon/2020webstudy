@@ -1,0 +1,30 @@
+type Query {
+    getMessages: GetMessagesResponse!
+}
+
+type Mutation {
+    createMessage(message: String): CreateMessageResponse!
+}
+
+type Subscription {
+    newMessageSubscription: Message
+}
+
+type Message {
+    id: Int
+    message: String
+    createdAt: String
+    updatedAt: String
+}
+
+type GetMessagesResponse{
+    ok: Boolean!
+    messages: [Message]
+    error: String
+}
+
+type CreateMessageResponse{
+    ok: Boolean!
+    message: Message
+    error: String
+}

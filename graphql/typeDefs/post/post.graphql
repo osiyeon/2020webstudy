@@ -11,6 +11,7 @@ type Mutation {
     content_text:String, 
     like:Int
     ): Post  
+    deletePosts(title:String): String!
 }
 
 type Post {

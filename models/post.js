@@ -46,9 +46,19 @@ module.exports = (sequelize, DataTypes) => {
     like: {
       type: DataTypes.INTEGER
     }
-  })
+  });
+  post.prototype.deletePost = async(title)=>{
+    const result = post.filter(post => post.title != title)
+     if (result.length != post.length){
+        post = result
+        return "succesfuly deleted"
+      } else {
+        return "name cannot found"
+      }  
+    }
   return post;
 };
+
 
 
 
